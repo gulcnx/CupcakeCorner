@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AddressView: View {
-    @Binding var order: Order
+    @Bindable var order: Order
     var body: some View {
         Form {
             Section {
@@ -30,5 +30,5 @@ struct AddressView: View {
 }
 
 #Preview {
-    AddressView(order: .constant(Order()))
+    AddressView(order: Order())
 }
