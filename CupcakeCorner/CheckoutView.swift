@@ -10,6 +10,7 @@ import SwiftUI
 struct CheckoutView:View {
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    @State private var placeOrderWorked = false
     
     var order: Order
     
@@ -45,6 +46,9 @@ struct CheckoutView:View {
         } message: {
             Text(confirmationMessage)
         }
+        .alert("❗️ Please check internet connection", isPresented: $placeOrderWorked) {
+            Button("OK") { }
+        }
     }
     
     func placeOrder() async {
@@ -65,6 +69,8 @@ struct CheckoutView:View {
         } catch {
             print("Checkout failed: \(error.localizedDescription)")
         }
+        
+        placeOrderWorked = true
     }
 }
 
