@@ -39,11 +39,10 @@ class Order: Codable {
     var addSprinkles = false
     
     
-    var name = ""
-    var streetAddress = ""
-    var city = ""
-    var zip = ""
-    
+    var name = UserDefaults.standard.string(forKey: "name") ?? ""
+    var streetAddress = UserDefaults.standard.string(forKey: "streetAddress") ?? ""
+    var city = UserDefaults.standard.string(forKey: "city") ?? ""
+    var zip = UserDefaults.standard.string(forKey: "zip") ?? ""
     
     var hasValidAddress: Bool {
         if name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || zip.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
